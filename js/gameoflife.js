@@ -1,4 +1,11 @@
-function seed() {}
+function seed(a, b, c) {
+  return [a, b, c];
+}
+
+let a = seed("a","b","c")
+console.log(a)
+
+
 
 function same([x, y], [j, k]) {}
 
