@@ -43,11 +43,11 @@ const printCells = (state) => {
   return accumulator;
 };
 
-const getNeighborsOf = ([x, y]) => {
+const getNeighborsOf = ([x, y]) => [
   [x-1, y+1], [x, y+1], [x+1, y+1],
   [x-1, y],             [x+1, y],
   [x-1, y-1], [x, y-1], [x+1, y-1]
-};
+];
 
 const getLivingNeighbors = (cell, state) => {
   return getNeighborsOf(cell).filter((n) => contains.bind(state)(n));
@@ -70,6 +70,7 @@ const calculateNext = (state) => {
       result = result.concat(willBeAlive([x,y], state) ? [[x, y]] : []);
     }
   }
+  return result;
 };
 
 const iterate = (state, iterations) => {
